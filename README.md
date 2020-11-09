@@ -18,7 +18,7 @@
 
     >>>
 
-## Open CMD and type python, then write below code...
+## Open CMD and type python, [then write below code](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/RUNME.py)...
 
                 import os
 
