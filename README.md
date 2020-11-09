@@ -1,12 +1,26 @@
 # PYPI Uploader
 
-        import os
+## Open CMD and type python, then write below code...
 
-        os.system('git clone https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package.git')
+                import os
+
+                os.system('git clone https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package.git')
+
+                # =========( DO IT MANUALLY )============
+                # os.system('cd 100th-Repository-Morsetor-python-Package')
+                #
+                # os.system('cd "PYPI python package"')
+                #
+                # os.system('python "100th-Repository-Morsetor-python-Package\PYPI python package\RUNME.py"')
+                #
+                # ======================================
+
+
 
 # Morsetor Package is in [Master Branch](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master) of this Repository.
 
 [![pypi](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/pypi%20screenshot.png?raw=true)](https://pypi.org/project/morsetor/)
+
 
 ## ...uploaded using, 
 
