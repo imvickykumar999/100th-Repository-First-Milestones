@@ -7,6 +7,7 @@
                 os.system('git clone https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package.git')
 
                 # =========( DO IT MANUALLY )============
+                
                 # os.system('cd 100th-Repository-Morsetor-python-Package')
                 #
                 # os.system('cd "PYPI python package"')
