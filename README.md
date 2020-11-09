@@ -18,7 +18,7 @@
 
 
 
-# Morsetor Package is in [Master Branch](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master) of this Repository.
+# vixuploader package is in [Master Branch](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master) of this Repository.
 
 [![pypi](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/screenshot.png?raw=true)](https://pypi.org/project/vixuploader/)
 
