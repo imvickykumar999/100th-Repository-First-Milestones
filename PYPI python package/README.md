@@ -4,7 +4,7 @@ Update setup.py according to your package requirements : https://github.com/imvi
 
 Run this python file : https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/PYPI%20python%20package/RUNME.py
 
-Run [`py upload.py`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/upload.py)
+Run [`py RUNME.py`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/PYPI%20python%20package/RUNME.py)
 
 [Morsetor Tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/morse%20tutorial.ipynb)
 
