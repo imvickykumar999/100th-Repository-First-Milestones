@@ -1,4 +1,22 @@
-# [PYPI Uploader](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/main/PYPI%20python%20package)
+# >>> [PYPI Uploader](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/main/PYPI%20python%20package)
+
+    >>> import vixuploader as vix
+    >>> help(vix)
+    Help on package vixuploader:
+
+    NAME
+        vixuploader - # when you import package for the first time, this __init__.py file runs automatically.
+
+    PACKAGE CONTENTS
+        github
+        morse
+        pypi
+        vixtor
+
+    FILE
+        c:\users\vicky\desktop\python\package_python\pypi python package\100th-repository-morsetor-python-package\pypi python package\vixuploader\__init__.py
+
+    >>>
 
 ## Open CMD and type python, then write below code...
 
