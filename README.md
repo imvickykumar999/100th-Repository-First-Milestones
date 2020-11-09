@@ -41,10 +41,10 @@
 [![pypi](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/screenshot.png?raw=true)](https://pypi.org/project/vixuploader/)
 
 
-## ...uploaded using, 
+## ...uploading on github using, 
 
-    `from morsetor import upload as up`
-    `up.github()`
+    `from vixuploader import github as g`
+    `g.upload()`
 
 ## Direction to Publish Package on Python Package Index...
 
