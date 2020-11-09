@@ -51,9 +51,9 @@
 ### [Open this Folder (contain all files required for publishing)](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master)
 ### Delete following Folders : 
 
-`hidden file = .git`
-[`dist`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master/dist)
-[`your_module.egg-info`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/master/morsetor.egg-info)
+    `hidden file = .git`
+    `dist`
+    `your_module.egg-info`
 
 #### now, ....
 
