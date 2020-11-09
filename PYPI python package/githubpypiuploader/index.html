@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brython : Morse Code Encrypter and Decrypter</title>
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js">
+  </script>
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js">
+  </script>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+
+</head>
+
+  <body onload="brython()">
+
+    <style>
+    body {
+        /* background-color: yellow; */
+        background-image: url(https://image.shutterstock.com/display_pic_with_logo/185134690/1787017058/stock-photo-young-black-handsome-man-standing-and-pointing-at-something-towards-his-top-right-corner-1787017058.jpg);
+        /* background-repeat: no-repeat; */
+    }
+    </style>
+
+    <script type="text/python">
+
+      from browser import document
+
+      decrypted = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                   'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+                   'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6',
+                   '7', '8', '9', '0', ',', '?', '(', ')', '!']
+
+      encrypted = ['/', '.-', '-...', '-.-.', '-..', '.', '..-.', '--.',
+                   '....', '..', '.---', '-.-', '.-..', '--', '-.', '---',
+                   '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--',
+                   '-..-', '-.--', '--..', '.----', '..---', '...--', '....-',
+                   '.....', '-....', '--...', '---..', '----.', '-----', '--..--',
+                   '..--..', '-.--.', '-.--.-', '-.-.--']
+
+      morse_enc = dict(zip(decrypted, encrypted))
+      morse_dec = dict([(encrypted, decrypted) for decrypted,
+                        encrypted in morse_enc.items()])
+
+      test = input('Enter Morse Code or, Simple Text (or, just Press Ok/Enter for default entry) : ')
+      if test == '':
+          test = '-.. . -.- .... / .-.. .. -.-- .- / -.-. .... .- .-.. / -. .. -.- .- .-..'
+
+      test = test.replace("_", "-").upper()
+      test_list = test.split(' ')
+
+      decrypt = []
+      def convert(j):
+          for i in j:
+              try:
+                decrypt.append((morse_enc[i]))
+              except:
+                try:
+                  decrypt.append((morse_dec[i]))
+                except:
+                  pass
+
+      if not any(ele in encrypted for ele in test_list):
+          box=[]
+          for i in test_list:
+              box.append(i+' ')
+          test_list = box
+
+          for j in test_list:
+              convert(j)
+              text = ' '.join(decrypt)
+      else:
+          convert(test_list)
+          text = ''.join(decrypt)
+
+      document <= f'Output : {text}'
+
+    </script>
+  </body>
+</html>
