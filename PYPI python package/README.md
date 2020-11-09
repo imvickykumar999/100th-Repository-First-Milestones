@@ -1,13 +1,16 @@
-Run [`py upload.py`](https://github.com/imvickykumar999/Internship-Study/blob/master/upload.py)
+New feature Added : Now you can Upload Your Custom package on Python Package Index using Above Project !!!
+
+Update setup.py according to your package requirements : https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/PYPI%20python%20package/setup.py
+
+Run this python file : https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/PYPI%20python%20package/RUNME.py
+
+Run [`py upload.py`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/upload.py)
+
+[Morsetor Tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/morse%20tutorial.ipynb)
+
+[![tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/pypi%20screenshot.png?raw=true)](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/morse%20tutorial.ipynb)
 
 [Uploading Files in Existing Repository on github using python script.](https://github.com/imvickykumar999/git-bash/tree/master)
-
-import time
-
-print("Print now")
-time.sleep(4.2)
-print("Printing after 4.2 seconds")
-
 
 [C:\Users\Vicky\Desktop\python\My APPs\brython\gitcmd>cd gitbash](https://github.com/imvickykumar999/git-bash/blob/master/upload.py)
 
