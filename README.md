@@ -6,9 +6,7 @@ Run this python file : https://github.com/imvickykumar999/100th-Repository-Morse
 
 Run [`py RUNME.py`](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/PYPI%20python%20package/RUNME.py)
 
-[Morsetor Tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/morse%20tutorial.ipynb)
-
-[![tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/screenshot.png?raw=true)](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/master/morse%20tutorial.ipynb)
+[![tutorial](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/blob/main/screenshot.png?raw=true)](https://pypi.org/project/vixuploader/)
 
 [Uploading Files in Existing Repository on github using python script.](https://github.com/imvickykumar999/git-bash/tree/master)
 
