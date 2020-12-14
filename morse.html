@@ -1,0 +1,264 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.8/brython.js" integrity="sha256-rA89wPrTJJQFWJaZveKW8jpdmC3t5F9rRkPyBjz8G04=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.8/brython_stdlib.js" integrity="sha256-Gnrw9tIjrsXcZSCh/wos5Jrpn0bNVNFJuNJI9d71TDs=" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            padding: 30px;
+            line-height: 1.6;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 1px #ccc solid;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      button {
+        cursor: pointer;
+        display: block;
+        background: #333;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 20px 0;
+      }
+
+      input[type="text"] {
+        border: 1px #ccc solid;
+        width: 300px;
+        padding: 4px;
+        height: 35px;
+        margin-top: 20px;
+      }
+
+      .card {
+        margin: 20px 0;
+        border: #ccc 1px solid;
+        padding: 20px;
+      }
+
+    </style>
+
+  <title>Morse Code Convertor</title>
+</head>
+
+<body onload="brython()" data-new-gr-c-s-check-loaded="14.987.0" data-gr-ext-installed="">
+
+    <a href="https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package">
+      <h1>Morse Code Convertor</h1>
+    </a>
+
+    <div id="output" class="card">THE DURATION OF A DASH IS THREE TIMES THE DURATION OF A DOT, EACH DOT OR DASH WITHIN A CHARACTER IS FOLLOWED BY PERIOD OF SIGNAL ABSENCE, CALLED A SPACE, EQUAL TO THE DOT DURATION, THE LETTERS OF A WORD ARE SEPARATED BY A SPACE OF DURATION EQUAL TO THREE DOTS, AND THE WORDS ARE SEPARATED BY A SPACE EQUAL TO SEVEN DOTS </div>
+
+    <script type="text/python">
+
+        from browser import document
+
+        decrypted = [' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                     'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+                     'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6',
+                     '7', '8', '9', '0', ',', '?', '(', ')', '!']
+
+        encrypted = ['/', '.-', '-...', '-.-.', '-..', '.', '..-.', '--.',
+                     '....', '..', '.---', '-.-', '.-..', '--', '-.', '---',
+                     '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--',
+                     '-..-', '-.--', '--..', '.----', '..---', '...--', '....-',
+                     '.....', '-....', '--...', '---..', '----.', '-----', '--..--',
+                     '..--..', '-.--.', '-.--.-', '-.-.--']
+
+        morse_enc = dict(zip(decrypted, encrypted))
+        morse_dec = dict([(encrypted, decrypted) for decrypted,
+                          encrypted in morse_enc.items()])
+
+        test = input('Enter Morse Code or, Simple Text (or, just Press Ok/Enter for default entry) : ')
+        if test == '':
+            test = '- .... . / -.. ..- .-. .- - .. --- -. / --- ..-. / .- / -.. .- ... .... / .. ... / - .... .-. . . / - .. -- . ... / - .... . / -.. ..- .-. .- - .. --- -. / --- ..-. / .- / -.. --- - --..-- / . .- -.-. .... / -.. --- - / --- .-. / -.. .- ... .... / .-- .. - .... .. -. / .- / -.-. .... .- .-. .- -.-. - . .-. / .. ... / ..-. --- .-.. .-.. --- .-- . -.. / -... -.-- / .--. . .-. .. --- -.. / --- ..-. / ... .. --. -. .- .-.. / .- -... ... . -. -.-. . --..-- / -.-. .- .-.. .-.. . -.. / .- / ... .--. .- -.-. . --..-- / . --.- ..- .- .-.. / - --- / - .... . / -.. --- - / -.. ..- .-. .- - .. --- -. --..-- / - .... . / .-.. . - - . .-. ... / --- ..-. / .- / .-- --- .-. -.. / .- .-. . / ... . .--. .- .-. .- - . -.. / -... -.-- / .- / ... .--. .- -.-. . / --- ..-. / -.. ..- .-. .- - .. --- -. / . --.- ..- .- .-.. / - --- / - .... .-. . . / -.. --- - ... --..-- / .- -. -.. / - .... . / .-- --- .-. -.. ... / .- .-. . / ... . .--. .- .-. .- - . -.. / -... -.-- / .- / ... .--. .- -.-. . / . --.- ..- .- .-.. / - --- / ... . ...- . -. / -.. --- - ... /'
+
+        test = test.replace("_", "-").upper()
+        test_list = test.split(' ')
+
+        decrypt = []
+        def convert(j):
+            for i in j:
+                try:
+                  decrypt.append((morse_enc[i]))
+                except:
+                  try:
+                    decrypt.append((morse_dec[i]))
+                  except:
+                    pass
+
+        if not any(ele in encrypted for ele in test_list):
+            box=[]
+            for i in test_list:
+                box.append(i+' ')
+            test_list = box
+
+            for j in test_list:
+                convert(j)
+                text = ' '.join(decrypt)
+        else:
+            convert(test_list)
+            text = ''.join(decrypt)
+
+        document['output'].text =  f'{text}'
+   </script>
+
+   <button onclick="myFunction()"> Copy text (...not in working state XD) </button>
+    <script>
+        function myFunction() {
+          var copyText = document.getElementById("output");
+          // var copyText = document['output'].text;
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("Copy");
+        alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+<div class="column is-12" style="height: auto !important;">
+<div itemscope="" itemtype="https://schema.org/FAQPage">
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What is Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Morse Code is a character encoding scheme that allows operators to send messages using a series of electrical pulses represented as short or long pulses, dots, and dashes in other words.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">Who Invented Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Samuel F. B. Morse and his assistant Alfred Vail are known as the inventors of the Morse code.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">When Was Morse Code Invented?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Morse code developed in the 1830s then advanced in the 1840s.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">When Was Morse Code Patented?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Samuel Morse received a U.S. patent, US1647A, for dot-dash telegraphy signals on June 20, 1840. On the other hand, some sources claim that Samuel Morse received a patent issued by an Ottoman Sultan, Abdulmejid I, for Morse Code. However, according to Cyrus Hamlin’s memoirs and The New York Times obituary published on April 3, 1872, Samuel Morse received not a patent, but an order of the Ottoman Empire, Order of Glory, instead.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What Was the First Message Sent by Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">“What hath God wrought” is the first official message sent by Samuel F.B. Morse on May 24, 1844, to open the Baltimore - Washington telegraph line.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What is Morse Code Used For?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">In the past, Morse code had extensive usage, especially in the military. Although Morse code has a limited usage area today, it is still being used in aviation, amateur radio activities, and assistive technology (AT).</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Use Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Morse code can be used in various ways, such as with pen and paper or with the aid of light and sound. Even, it can be used with the parts of the body like eyes or fingers.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">Is Morse Code Hard to Learn?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Although Morse code had a steep learning curve in the past, thanks to modern applications like Morse code translator or Gboard keyboard, it is easier to learn Morse code nowadays.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Learn Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">You can learn the Morse code by studying and listening to Morse audio, as well as through word memorization techniques you can find on various websites. However, one of the best Morse code learning methods in 2019 is the Gboard keyboard, which is developed by Google. With the learn Morse exercises provided by Google Creative Lab, you can even exercise online free.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Read Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">If you are not proficient enough in reading Morse code, you can look up for the corresponding Morse representation of each character from the Morse alphabet table, or you can use Morse code translator.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Translate Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">If you’d like to translate or decipher Morse code and if you do not know how to read Morse code, you can use Morse Code Translator online. With the Morse Decoder, you can decode Morse code and read English text easily. Therefore, you can and end your search for the question of how do you translate Morse code.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What is Morse Code Translator?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Morse Code Translator is a translator that lets anyone translate text to Morse code and decode Morse code to text easily. With the online Morse code translator, anyone can convert any plain text in English or whatever language to Morse code and vice versa.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Use Morse Code Translator?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Just type in the Morse code or text to the corresponding input fields to use the Morse code converter. For instance, do you remember the Nokia SMS Tone? Try decoding “... -- ...” then playing the audio of it. How about decoding a secret message in Morse or the easter egg you found in a game you played? Well, Morse Code Translator can help you as long as you have an internet connection and the ambition to learn Morse code.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What Does SOS Mean?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">SOS is a distress signal in Morse code, which is internationally recognized worldwide for obtaining help. It was first adopted by the German government in 1905. Although some people think that SOS stands for “Save Our Souls” or “Save Our Ship”, its letters do not stand for anything.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What is SOS in Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">SOS in Morse code is “... --- ...”</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What is the Morse Code for I Love You?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">“I Love You” in Morse code is “.. / .-.. --- ...- . / -.-- --- ..-”</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How to Say Hello in Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">“Hello” in Morse code is “.... . .-.. .-.. ---”</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">How Do You Say Help in Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">“Help” in Morse code is “.... . .-.. .--.”, but you can also use the SOS signal, which is “... --- ...”.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What Does --- Mean in Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">“---” means “O” in Morse code.</p>
+</div>
+</div>
+<div class="content" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h2 class="is-size-5" itemprop="name">What Letter Is 3 Dots in Morse Code?</h2>
+<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Letter S is three dots in Morse code: “...”</p>
+</div>
+</div>
+</div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-9320198138637130" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;"><ins id="aswift_3_expand" style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1200px; background-color: transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_3_anchor" style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1200px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:1200px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="280" frameborder="0" src="https://googleads.g.doubleclick.net/pagead/ads?guci=2.2.0.0.2.2.0.0&amp;client=ca-pub-9320198138637130&amp;output=html&amp;h=280&amp;adk=4070374814&amp;adf=2747542372&amp;pi=t.aa~a.581259939~rp.4&amp;w=1200&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1607241793&amp;rafmt=1&amp;to=qs&amp;pwprc=7931593647&amp;psa=1&amp;format=1200x280&amp;url=https%3A%2F%2Fmorsedecoder.com%2F&amp;flash=0&amp;fwr=0&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;adsid=NT&amp;tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9hZHNlcnZpY2UuZ29vZ2xlLmNvbSIsInN0YXRlIjowfSx7Imlzc3Vlck9yaWdpbiI6Imh0dHBzOi8vYXR0ZXN0YXRpb24uYW5kcm9pZC5jb20iLCJzdGF0ZSI6MH1d&amp;dt=1607241792987&amp;bpp=6&amp;bdt=2169&amp;idt=6&amp;shv=r20201201&amp;cbv=r20190131&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D642ad923940000cf-22f883770ec500a5%3AT%3D1607241792%3ART%3D1607241792%3AS%3DALNI_MbENchsHgicBNCH9KqdXscaZGqBtA&amp;prev_fmts=0x0%2C1200x280%2C1200x280%2C1519x754&amp;nras=2&amp;correlator=5853610041827&amp;frm=20&amp;pv=1&amp;ga_vid=534169705.1607241792&amp;ga_sid=1607241792&amp;ga_hid=1886525609&amp;ga_fc=0&amp;u_tz=330&amp;u_his=15&amp;u_java=0&amp;u_h=864&amp;u_w=1536&amp;u_ah=824&amp;u_aw=1536&amp;u_cd=24&amp;u_nplug=3&amp;u_nmime=4&amp;adx=160&amp;ady=3560&amp;biw=1519&amp;bih=754&amp;scr_x=0&amp;scr_y=546&amp;oid=3&amp;pvsid=2471734856052319&amp;pem=192&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;rx=0&amp;eae=0&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1536%2C0%2C1536%2C824%2C1536%2C754&amp;vis=1&amp;rsz=%7C%7CeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=8320&amp;bc=31&amp;ifi=3&amp;uci=a!3&amp;btvi=2&amp;fsb=1&amp;xpc=kfjE6pWPVR&amp;p=https%3A//morsedecoder.com&amp;dtd=156" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!3" data-google-query-id="CML0qaHyuO0CFSiErAIdzOgLRA" data-load-complete="true"></iframe></ins></ins></ins></div>
+</div>
+
+
+
+</body></html>
