@@ -1,4 +1,4 @@
-# [My Firebase](https://imvickykumar999.herokuapp.com/iotcar)
+# [My Firebase](https://imvickykumar999.herokuapp.com)
 
     >>> from vixuploader.firebase import firebase as f
     >>> f1 = f.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
