@@ -1,3 +1,12 @@
+# [My Firebase](https://imvickykumar999.herokuapp.com/iotcar)
+
+    >>> from vixuploader.firebase import firebase as f
+    >>> f1 = f.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+    >>> result = f1.get('/led1', None)
+    >>> result
+    0
+    >>>
+
 # >>> [PYPI Uploader](https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package/tree/main/PYPI%20python%20package)
 
     >>> import vixuploader as vix
