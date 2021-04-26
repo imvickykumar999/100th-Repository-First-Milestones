@@ -1,5 +1,5 @@
 1. creating a folder: any name
-2. creating a sub fodler : is_palindrom_bala
+2. creating a sub folder : is_palindrom_bala
 3. creating a sub folder :is_palindrome_bala
 4. create __init__.py inside 2nd is_palindrome folder
 5. create setup.py inside 1st is_palindrome folder
